@@ -1,11 +1,18 @@
 package com.kirvigen.delegateadapterlibrary
 
+import java.lang.reflect.Type
+import kotlin.reflect.KClass
+
 class DelegateManager(
     var data:MutableList<Any> = mutableListOf()
 ) {
-    val viewHolders = mutableListOf<DelegateHolder>()
+    val viewHolders = mutableListOf<Class<DelegateHolder>>()
+    val idsLayout = mutableListOf<Int>()
+    val types = mutableListOf<Type>()
     fun addHolder(h:DelegateHolder):DelegateManager{
-        viewHolders.add(h)
+        idsLayout.add(h.getLayoutId())
+        types.add(h.getTypeItem())
+        viewHolders.add(h::class.java as Class<DelegateHolder>)
         return this
     }
     fun build():AdapterDelegate{

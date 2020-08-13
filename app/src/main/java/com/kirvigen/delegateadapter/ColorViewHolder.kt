@@ -5,9 +5,11 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.gson.reflect.TypeToken
 import com.kirvigen.delegateadapterlibrary.DelegateHolder
 import kotlinx.android.synthetic.main.item_image.*
 import java.lang.Exception
+import java.lang.reflect.Type
 
 class ColorViewHolder: DelegateHolder {
     constructor(context: Context):super(context)
@@ -18,13 +20,14 @@ class ColorViewHolder: DelegateHolder {
         fun onClick(i:String)
     }
 
-    override fun createHolder(parent: ViewGroup): DelegateHolder {
-        return ColorViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false))
+    override fun getLayoutId(): Int {
+        return R.layout.item_image
     }
 
-    override fun getTypeItem(): Class<String>{
-        return String::class.java
+    override fun getTypeItem(): Type {
+        return object : TypeToken<String>(){}.type
     }
+
 
     override fun bind(o: Any) {
         val  obj = o as String

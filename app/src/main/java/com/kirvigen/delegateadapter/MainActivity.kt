@@ -7,28 +7,33 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kirvigen.delegateadapterlibrary.DelegateManager
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(),TitleViewHolder.OnClickListenerMyHolder,ColorViewHolder.OnClickListenerHolderColor {
+class MainActivity : AppCompatActivity(),ColorViewHolder.OnClickListenerHolderColor {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val d = mutableListOf<Any>()
-        for (i in 0 until 10)
-            d.add(TitleObj("${i}) TEXT"))
-        for (i in 0 until 10)
-            d.add("#0${i}0${i}${i}0")
+        d.add(TitleObj("Начало"))
+        d.add("#FF0000")
+        d.add("#FF7F00")
+        d.add("#FFFF00")
+        d.add("#00FF99")
+        d.add("#0000FF")
+        d.add("#4B0082")
+        d.add("#8F00FF")
         d.add(TitleObj("TEXT END"))
 
         recycler.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        recycler.adapter = DelegateManager(d)
+        val adapter = DelegateManager(d)
             .addHolder(TitleViewHolder(this))
             .addHolder(ColorViewHolder(this))
             .build()
+        recycler.adapter = adapter
+        d.add(TitleObj("END FULL"))
+        adapter.notifyDataSetChanged()
+
     }
 
-    override fun onClick(i: TitleObj) {
-        Toast.makeText(this,i.title,Toast.LENGTH_LONG).show()
-    }
 
     override fun onClick(i: String) {
         Toast.makeText(this, "color: $i", Toast.LENGTH_SHORT).show()

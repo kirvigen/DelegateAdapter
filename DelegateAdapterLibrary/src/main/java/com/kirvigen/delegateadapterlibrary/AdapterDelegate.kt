@@ -1,19 +1,29 @@
 package com.kirvigen.delegateadapterlibrary
 
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.internal.`$Gson$Types`
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 
 class AdapterDelegate(val manager:DelegateManager): RecyclerView.Adapter<DelegateHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DelegateHolder {
-         return manager.viewHolders[viewType].createHolder(parent)
+
+        val c = manager.viewHolders[viewType]
+        return c.constructors.last().newInstance( LayoutInflater.from(parent.context).inflate(
+            manager.idsLayout[viewType], parent, false)) as DelegateHolder
     }
 
     override fun getItemViewType(position: Int): Int {
-         for(i in 0 until manager.viewHolders.size)
-             if(manager.data[position]::class.java == manager.viewHolders[i].getTypeItem() )
-                 return i
-         return 1
+        val t = TypeToken.get(manager.data[position]::class.java).type
+        for(i in 0 until manager.viewHolders.size) {
+            if (t == manager.types[i])
+                return i
+        }
+        return 0
     }
 
     override fun getItemCount(): Int {
