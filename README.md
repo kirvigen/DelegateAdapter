@@ -5,6 +5,8 @@
 ---
 [![](https://jitpack.io/v/kirvigen/EasyAlert.svg)](https://jitpack.io/#kirvigen/DelegateAdapter)
 
+![cover](https://github.com/kirvigen/DelegateAdapter/blob/master/ezgif.com-video-to-gif.gif)
+
 # Install
 
 ```groovy
