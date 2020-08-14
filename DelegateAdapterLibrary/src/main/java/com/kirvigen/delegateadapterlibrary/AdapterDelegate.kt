@@ -13,8 +13,9 @@ class AdapterDelegate(val manager:DelegateManager): RecyclerView.Adapter<Delegat
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DelegateHolder {
 
         val c = manager.viewHolders[viewType]
-        return c.constructors.last().newInstance( LayoutInflater.from(parent.context).inflate(
-            manager.idsLayout[viewType], parent, false)) as DelegateHolder
+
+        return c.constructors.last().newInstance(LayoutInflater.from(parent.context).inflate(manager.idsLayout[viewType],
+            parent, false)) as DelegateHolder
     }
 
     override fun getItemViewType(position: Int): Int {

@@ -6,6 +6,72 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <TextView
+        android:layout_marginTop="20dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Delegate Adapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:id="@+id/Addimage"
+            app:cardCornerRadius="20dp"
+            app:cardMaxElevation="8dp"
+            app:cardElevation="5dp"
+            android:outlineAmbientShadowColor="#4D000000"
+            android:outlineSpotShadowColor="#4D000000"
+            android:layout_margin="10dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:tint="@color/colorAccent"
+                android:padding="8dp"
+                android:src="@drawable/ic_baseline_image_24"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:id="@+id/AddTitle"
+            app:cardMaxElevation="8dp"
+            app:cardElevation="5dp"
+            android:outlineAmbientShadowColor="#4D000000"
+            android:outlineSpotShadowColor="#4D000000"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="10dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:tint="@color/colorAccent"
+                android:padding="8dp"
+                android:src="@drawable/ic_round_text_fields_24"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:id="@+id/AddText"
+            app:cardMaxElevation="8dp"
+            app:cardElevation="5dp"
+            android:outlineAmbientShadowColor="#4D000000"
+            android:outlineSpotShadowColor="#4D000000"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="10dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:tint="@color/colorAccent"
+                android:padding="8dp"
+                android:src="@drawable/ic_round_subject_24"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
