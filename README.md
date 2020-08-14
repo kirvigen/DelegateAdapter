@@ -1,4 +1,4 @@
-# DelegateAdapter
+
 ![cover](https://sun9-44.userapi.com/I5e0we6xHC1Fav5c2eEbbNI31cd7Ea9qEvILnA/vSppB8a7IjI.jpg)
 
 
