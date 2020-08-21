@@ -19,11 +19,13 @@ class AdapterDelegate(val manager:DelegateManager): RecyclerView.Adapter<Delegat
     }
 
     override fun getItemViewType(position: Int): Int {
-        val t = TypeToken.get(manager.data[position]::class.java).type
-        for(i in 0 until manager.viewHolders.size) {
-            if (t == manager.types[i])
-                return i
-        }
+        try {
+            val t = TypeToken.get(manager.data[position]::class.java).type
+            for (i in 0 until manager.viewHolders.size) {
+                if (t == manager.types[i])
+                    return i
+            }
+        }catch (e:Exception){}
         return 0
     }
 
