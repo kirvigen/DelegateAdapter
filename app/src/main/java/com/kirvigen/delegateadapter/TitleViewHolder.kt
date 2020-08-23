@@ -1,12 +1,9 @@
 package com.kirvigen.delegateadapter
 
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.kirvigen.delegateadapterlibrary.DelegateHolder
 import kotlinx.android.synthetic.main.item_title.*
-import java.lang.reflect.Type
 
 class TitleViewHolder: DelegateHolder{
     constructor(context:Context):super(context)
@@ -16,8 +13,8 @@ class TitleViewHolder: DelegateHolder{
         layoutId = R.layout.item_title
     }
 
-    override fun bind(o: Any) {
-        val  obj = o as TitleObj
+    override fun bind(item: Any?) {
+        val  obj = item as TitleObj
         titleView.text = obj.title
     }
 }

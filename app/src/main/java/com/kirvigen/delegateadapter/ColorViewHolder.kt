@@ -24,7 +24,7 @@ class ColorViewHolder: DelegateHolder {
         layoutId = R.layout.item_image
     }
 
-    override fun bind(o: Any) {
+    override fun bind(o: Any?) {
         val  colorObj = o as ColorObj
         colorView.setCardBackgroundColor(colorObj.color)
         colorView.setOnClickListener { onClick?.onClick(colorObj) }

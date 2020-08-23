@@ -7,6 +7,6 @@ import kotlin.reflect.KClass
 
 interface DHolder {
     fun createHolder(parent: ViewGroup):DelegateHolder
-    fun bind(item:Any)
+    fun bind(item:Any?)
     fun getTypeItem():Type
 }

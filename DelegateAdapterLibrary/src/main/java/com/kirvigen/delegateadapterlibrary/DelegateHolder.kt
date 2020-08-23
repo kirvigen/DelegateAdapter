@@ -34,7 +34,7 @@ open class DelegateHolder:RecyclerView.ViewHolder,LayoutContainer,DHolder {
         TODO("Not yet implemented")
     }
 
-    override fun bind(item:Any){}
+    override fun bind(item:Any?){}
 
     override fun getTypeItem(): Type {
         return TypeToken.get(classObject).type

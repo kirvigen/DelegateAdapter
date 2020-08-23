@@ -14,7 +14,7 @@ class TextViewHolder:DelegateHolder {
         layoutId = R.layout.item_text
     }
 
-    override fun bind(item: Any) {
+    override fun bind(item: Any?) {
         val textObj = item as TextObj
         TextView.text = textObj.text
     }
