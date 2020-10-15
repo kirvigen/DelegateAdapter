@@ -21,7 +21,7 @@ allprojects {
 Add the following line to your dependencies:
 ```groovy
 dependencies {
-	implementation 'com.github.kirvigen:DelegateAdapter:1.0'
+	implementation 'com.github.kirvigen:DelegateAdapter:1.0.1'
 }
 ```
 
